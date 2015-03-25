@@ -3,13 +3,7 @@ from helper import *
 #           Environment
 Import( 'env', 'args' )
 
-def add_dependencies(env, args):
-    '''[[[cog
-    import cogging as c
-    c.tpl(cog,templateFile,c.a(prefix=configFile))
-    ]]]'''
-
-    '''[[[end]]] (checksum: 68b329da9893e34099c7d8ad5cb9c940)'''
+# def add_dependencies(env, args):
     # AddPthreads(env, args)
     # AddNetwork(args)
 

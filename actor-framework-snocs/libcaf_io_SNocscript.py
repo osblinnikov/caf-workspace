@@ -4,7 +4,7 @@ from helper import *
 Import( 'env', 'args' )
 
 def add_dependencies(env, args):
-    AddDependency(args,'com_github_actor_framework_libcaf_core',join(args['PROJECTS_ROOT_PATH'],'src/github.com/actor-framework/libcaf_core'))
+    AddDependency(args,'com_github_actor_framework_libcaf_core','github.com/actor-framework/libcaf_core')
     # AddPthreads(env, args)
     # AddNetwork(args)
 
