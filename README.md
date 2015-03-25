@@ -17,9 +17,9 @@ Here some options which are used
 
 shared=1|0 means to build project based on shared libraries rather than static libs
 
-configuration=Release|Debug means to build project basing on shared libraries rather than static libs
+configuration=Release|Debug
 
-platform=x64|x86 choose architecture 
+platform=x64|x86
 
 All results of the builds will be stored in `build` directory and files will have the names like: 
 
