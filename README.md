@@ -15,7 +15,7 @@ this commands will compile all caf libraries, unit-tests, nexus and cash using S
 
 Here some options which are used
 
-shared=1|0 means to build project basing on shared libraries rather than static libs
+shared=1|0 means to build project based on shared libraries rather than static libs
 
 configuration=Release|Debug means to build project basing on shared libraries rather than static libs
 
