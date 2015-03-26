@@ -8,7 +8,7 @@ Import( 'env', 'args' )
     # AddNetwork(args)
 
 c = {}
-c['PROG_NAME'] = 'com_github_actor_framework_libcaf_core'
+c['PROG_NAME'] = 'libcaf_core_actor_framework_github_com'
 #c['sourceFiles'] = ['libcaf_core.c']
 #c['testFiles'] = ['libcaf_coreTest.c']
 #c['runFiles'] = ['main.c']

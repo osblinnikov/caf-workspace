@@ -4,9 +4,9 @@ from helper import *
 Import( 'env', 'args' )
 
 def add_dependencies(env, args):
-    AddDependency(args,'com_github_actor_framework_libcaf_riac','github.com/actor-framework/libcaf_riac')
-    AddDependency(args,'com_github_actor_framework_libcaf_io','github.com/actor-framework/libcaf_io')
-    AddDependency(args,'com_github_actor_framework_libcaf_core','github.com/actor-framework/libcaf_core')
+    AddDependency(args,'libcaf_riac_actor_framework_github_com','github.com/actor-framework/libcaf_riac')
+    AddDependency(args,'libcaf_io_actor_framework_github_com','github.com/actor-framework/libcaf_io')
+    AddDependency(args,'libcaf_core_actor_framework_github_com','github.com/actor-framework/libcaf_core')
     AddPthreads(env, args)
     # AddNetwork(args)
     conf = Configure(env)
@@ -17,7 +17,7 @@ def add_dependencies(env, args):
 
 
 c = {}
-c['PROG_NAME'] = 'com_github_actor_framework_cash'
+c['PROG_NAME'] = 'cash_actor_framework_github_com'
 c['paths'] = ['sash']
 #c['sourceFiles'] = ['libcaf_core.c']
 #c['testFiles'] = ['libcaf_coreTest.c']
