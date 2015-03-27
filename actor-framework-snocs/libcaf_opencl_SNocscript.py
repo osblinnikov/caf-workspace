@@ -1,19 +1,19 @@
 
 from helper import *
 #           Environment
-Import( 'env', 'args' )
+Import( 'env' )
 
-def add_dependencies(env, args):
-    AddDependency(args,'libcaf_core_actor_framework_github_com','github.com/actor-framework/libcaf_core')
-    # AddPthreads(env, args)
-    # AddNetwork(args)
+def add_dependencies(env):
+    AddDependency(env,'libcaf_core','github.com/actor-framework/libcaf_core')
+    # AddPthreads(env)
+    # AddNetwork(env)
 
 c = {}
-c['PROG_NAME'] = 'libcaf_opencl_actor_framework_github_com'
+c['PROG_NAME'] = 'libcaf_opencl'
 #c['sourceFiles'] = ['libcaf_io.c']
 #c['testFiles'] = ['libcaf_ioTest.c']
 #c['runFiles'] = ['main.c']
-#c['defines'] = []
+#c['CPPDEFINES'] = []
 c['inclDeps'] = add_dependencies
 #c['inclDepsDynamic'] = add_dependencies
 #c['inclDepsDynamic_tests'] = add_dependencies
@@ -21,4 +21,4 @@ c['inclDeps'] = add_dependencies
 #c['inclDepsStatic'] = add_dependencies
 #c['inclDepsStatic_tests'] = add_dependencies
 #c['inclDepsStatic_run'] = add_dependencies
-DefaultLibraryConfig(c, env, args)
+DefaultLibraryConfig(env, c)

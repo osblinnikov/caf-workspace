@@ -1,21 +1,20 @@
 
 from helper import *
 #           Environment
-Import( 'env', 'args' )
+Import( 'env' )
 
-def add_dependencies(env, args):
-    AddDependency(args,'libcaf_opencl_actor_framework_github_com','github.com/actor-framework/libcaf_opencl')
-    AddDependency(args,'libcaf_riac_actor_framework_github_com','github.com/actor-framework/libcaf_riac')
-    AddDependency(args,'libcaf_io_actor_framework_github_com','github.com/actor-framework/libcaf_io')
-    AddDependency(args,'libcaf_core_actor_framework_github_com','github.com/actor-framework/libcaf_core')
-    AddPthreads(env, args)
-    # AddNetwork(args)
+def add_dependencies(env):
+    AddDependency(env,'libcaf_opencl','github.com/actor-framework/libcaf_opencl')
+    AddDependency(env,'libcaf_riac','github.com/actor-framework/libcaf_riac')
+    AddDependency(env,'libcaf_io','github.com/actor-framework/libcaf_io')
+    AddDependency(env,'libcaf_core','github.com/actor-framework/libcaf_core')
+    AddPthreads(env)
+    # AddNetwork(env)
 
 def add_unit_test(testName, additionalFiles=[]):
-    args['PROG_NAME'] = 'unit_testing_actor_framework_github_com'+testName
-    args['prj_env'] = env.Clone()
-    add_dependencies(env, args)
-    env.Default(PrefixTest(args, '', ['test_'+testName+'.cpp','test.cpp']+additionalFiles))
+    initEnv(env,  testName+'_libcaf_unit_testing')
+    add_dependencies(env)
+    env['scons'].Default(PrefixTest(env, '', ['test_'+testName+'.cpp','test.cpp']+additionalFiles))
 
 add_unit_test('ripemd_160')
 add_unit_test('variant')
@@ -47,5 +46,5 @@ add_unit_test('unpublish')
 add_unit_test('optional')
 add_unit_test('fixed_stack_actor')
 add_unit_test('actor_pool')
-if args['MSVC_VERSION'] == None and args['COMPILER_CODE'] != 'mingw':
+if env['MSVC_VERSION'] == None and env['COMPILER'] != 'mingw':
   add_unit_test('profiled_coordinator')

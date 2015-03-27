@@ -14,6 +14,7 @@ cp $SCRIPTPATH/actor-framework-snocs/libcaf_riac_SNocscript.py $SCRIPTPATH/githu
 cp $SCRIPTPATH/actor-framework-snocs/nexus_SNocscript.py $SCRIPTPATH/github.com/actor-framework/nexus/SNocscript.py
 cp $SCRIPTPATH/actor-framework-snocs/cash_SNocscript.py $SCRIPTPATH/github.com/actor-framework/cash/SNocscript.py
 cp $SCRIPTPATH/actor-framework-snocs/unit_testing_SNocscript.py $SCRIPTPATH/github.com/actor-framework/unit_testing/SNocscript.py
+cp $SCRIPTPATH/actor-framework-snocs/examples_SNocscript.py $SCRIPTPATH/github.com/actor-framework/examples/SNocscript.py
 
 #CHANGE THE DEFAULT SOURCE AND INSTALL PATHS
 export SNOCS_PROJECTS_SRC_PATH=$SCRIPTPATH
@@ -23,4 +24,4 @@ export SNOCS_INSTALL_BIN_PATH="$SCRIPTPATH/build"
 mkdir $SCRIPTPATH/build
 
 #START COMPILATION, INCLUDING ARGUMENTS PROVIDED TO THE SCRIPT, WITH G++ COMPILER (with -std=gnu++11 flag)
-$SCRIPTPATH/github.com/osblinnikov/snocs/snocs $SCRIPTPATH ${*:1} compiler=gpp_cpp11
+$SCRIPTPATH/github.com/osblinnikov/snocs/snocs $SCRIPTPATH -j 8 compiler=gpp platform=x64 verbose=0 -all ${*:1}
