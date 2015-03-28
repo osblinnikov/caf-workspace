@@ -13,9 +13,10 @@ def add_dependencies(env):
 
 def addWithFiles(progName, path, files, cppPaths, c):
     initEnv(env,  progName+'_libcaf_examples')
+    enableQtModules(env,c,True)
     env['prj_env'].Append( CPPPATH = cppPaths )
     add_dependencies(env)
-    enableQtModules(env,c,False)
+    
     env['scons'].Default(PrefixProgram(env, path, [progName+".cpp"]+files))
 
 def add(progName, path):
@@ -60,9 +61,13 @@ if PROTOBUF_FOUND:
 
 
 
+if env['QT_TOOL'] == 'qt5':
+    c = {}
+    c['qt5modules'] = ['QtCore','QtGui','QtWidgets']
+    c['qt5ui'] = ['qtsupport/chatwindow.ui']
 
-#   find_package(Qt5 COMPONENTS Core Gui Widgets)
-#   if(Qt5_FOUND)
+    addWithFiles('qt_group_chat', 'qtsupport', ['chatwidget.cpp'], ['qtsupport'], c)
+
 #     message(STATUS "Found Qt5")
 #     #include(${QT_USE_FILE})
 #     QT5_ADD_RESOURCES(GROUP_CHAT_RCS )

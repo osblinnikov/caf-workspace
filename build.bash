@@ -24,4 +24,4 @@ export SNOCS_INSTALL_BIN_PATH="$SCRIPTPATH/build"
 mkdir $SCRIPTPATH/build
 
 #START COMPILATION, INCLUDING ARGUMENTS PROVIDED TO THE SCRIPT, WITH G++ COMPILER (with -std=gnu++11 flag)
-$SCRIPTPATH/github.com/osblinnikov/snocs/snocs $SCRIPTPATH -j 8 compiler=gpp platform=x64 verbose=0 -all ${*:1}
+QT_TOOL=qt4 QTDIR=~/Qt/5.4/gcc_64 $SCRIPTPATH/github.com/osblinnikov/snocs/snocs $SCRIPTPATH -j 8 compiler=gpp platform=x64 verbose=0 -all ${*:1}
