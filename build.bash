@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#TERMINATE ON ERRORS
+set -e
+
 # ------------------
 # Absolute path to this script. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f $0)
@@ -21,7 +24,7 @@ export SNOCS_PROJECTS_SRC_PATH=$SCRIPTPATH
 export SNOCS_INSTALL_LIB_PATH="$SCRIPTPATH/build"
 export SNOCS_INSTALL_BIN_PATH="$SCRIPTPATH/build"
 
-mkdir $SCRIPTPATH/build
+# mkdir $SCRIPTPATH/build
 
 #START COMPILATION, INCLUDING ARGUMENTS PROVIDED TO THE SCRIPT, WITH G++ COMPILER (with -std=gnu++11 flag)
-QT_TOOL=qt4 QTDIR=~/Qt/5.4/gcc_64 $SCRIPTPATH/github.com/osblinnikov/snocs/snocs $SCRIPTPATH -j 8 compiler=gpp platform=x64 verbose=0 -all ${*:1}
+QTVER=5.4 QTDIR=~/Qt/5.4/gcc_64 $SCRIPTPATH/github.com/osblinnikov/snocs/snocs.py $SCRIPTPATH -j 8 --more-warnings compiler=gpp platform=x64 verbose=0 -all ${*:1}

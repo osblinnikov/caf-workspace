@@ -28,6 +28,17 @@ All results of the builds will be stored in `build` directory and files will hav
     libcaf_io_static_actor_framework_github_com_gpp_x64.a
 
 
+Specific to CAF available macro definitions:
+
+    define=CAF_NO_MEM_MANAGEMENT
+    define=CAF_ENABLE_RUNTIME_CHECKS
+    define="CAF_LOG_LEVEL=0" define="LOG_LEVEL_STR=\"ERROR\""
+
+Enable memory sanitizer:
+
+    cflag=-fsanitize=address cflag=-fno-omit-frame-pointer
+
+
 FAQ:
 ---
 
@@ -39,13 +50,15 @@ FAQ:
 
     On Ubuntu execute `sudo apt-get install libedit-dev` and recompile the project. 
     Note: Sometimes scons required clearing the cache before recompilation with newly installed packages:
-    `rm -r .scon*`
+    `rm .sconsign.dblite`
 
 3. Got "Did not find libprotobuf.a or protobuf.lib! Will skip `protobuf_broker` altogether!", what am I gonna do?
 
     On Ubuntu, install libprotobuf and protoc: `sudo apt-get install libprotobuf-dev protobuf-compiler` and recompile project again. Notice the note in FAQ#2.
 
+4. Got "Did not find libcurl.a or curl.lib! Will skip...."
 
+    On Ubuntu, install one of libcurl-dev packages e.g: `sudo apt-get install libcurl4-openssl-dev`. Notice the note in FAQ#2.
 
 
     

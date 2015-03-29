@@ -28,7 +28,7 @@
 *.app
 
 build
-config.log
+*.log
 .scons*
 *.dblite
 .sconf*

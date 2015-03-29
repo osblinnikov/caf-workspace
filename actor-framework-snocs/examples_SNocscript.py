@@ -61,68 +61,20 @@ if PROTOBUF_FOUND:
 
 
 
-if env['QT_TOOL'] == 'qt5':
+if env.has_key('QT_TOOL'):
     c = {}
-    c['qt5modules'] = ['QtCore','QtGui','QtWidgets']
-    c['qt5ui'] = ['qtsupport/chatwindow.ui']
-
+    c['qt4modules'] = c['qt5modules'] = ['QtCore','QtGui','QtWidgets']
+    c['qt4ui'] = c['qt5ui'] = ['qtsupport/chatwindow.ui']
     addWithFiles('qt_group_chat', 'qtsupport', ['chatwidget.cpp'], ['qtsupport'], c)
 
-#     message(STATUS "Found Qt5")
-#     #include(${QT_USE_FILE})
-#     QT5_ADD_RESOURCES(GROUP_CHAT_RCS )
-#     QT5_WRAP_UI(GROUP_CHAT_UI_HDR qtsupport/chatwindow.ui)
-#     QT5_WRAP_CPP(GROUP_CHAT_MOC_SRC qtsupport/chatwidget.hpp)
-#     # generated headers will be in cmake build directory
-#     #include_directories(. qtsupport ${CMAKE_CURRENT_BINARY_DIR} ${CPPA_INCLUDE})
-#     include_directories(qtsupport
-#                         ${CMAKE_CURRENT_BINARY_DIR}
-#                         ${Qt5Core_INCLUDE_DIRS}
-#                         ${Qt5Gui_INCLUDE_DIRS}
-#                         ${Qt5Widgets_INCLUDE_DIRS})
-#     set(GROUP_CHAT_SRC qtsupport/qt_group_chat.cpp qtsupport/chatwidget.cpp)
-#     add_executable(qt_group_chat
-#                    ${GROUP_CHAT_SRC}
-#                    ${GROUP_CHAT_MOC_SRC}
-#                    ${GROUP_CHAT_UI_HDR})
-#     target_link_libraries(qt_group_chat
-#                           ${CMAKE_DL_LIBS}
-#                           ${LIBCAF_LIBRARIES}
-#                           Qt5::Core
-#                           Qt5::Gui
-#                           Qt5::Widgets)
-#     add_dependencies(qt_group_chat all_examples)
-#   else()
-#     find_package(Qt4)
-#     if(QT4_FOUND)
-#       message(STATUS "Found Qt4")
-#       include(${QT_USE_FILE})
-#       QT4_ADD_RESOURCES(GROUP_CHAT_RCS )
-#       QT4_WRAP_UI(GROUP_CHAT_UI_HDR qtsupport/chatwindow.ui)
-#       QT4_WRAP_CPP(GROUP_CHAT_MOC_SRC qtsupport/chatwidget.hpp)
-#       # generated headers will be in cmake build directory
-#       #include_directories(. qtsupport ${CMAKE_CURRENT_BINARY_DIR} ${CPPA_INCLUDE})
-#       include_directories(qtsupport ${CMAKE_CURRENT_BINARY_DIR})
-#       set(GROUP_CHAT_SRCS qtsupport/qt_group_chat.cpp qtsupport/chatwidget.cpp)
-#       add_executable(qt_group_chat
-#                      ${GROUP_CHAT_SRCS}
-#                      ${GROUP_CHAT_MOC_SRC}
-#                      ${GROUP_CHAT_UI_HDR})
-#       target_link_libraries(qt_group_chat
-#                             ${CMAKE_DL_LIBS}
-#                             ${LIBCAF_LIBRARIES}
-#                             ${QT_LIBRARIES})
-#       add_dependencies(qt_group_chat all_examples)
-#     endif()
-#   endif()
-# endif()
 
-# if(NOT CAF_NO_CURL_EXAMPLES)
-#   find_package(CURL)
-#   if(CURL_FOUND)
-#     add_executable(curl_fuse curl/curl_fuse.cpp)
-#     include_directories(${CURL_INCLUDE_DIRS})
-#     target_link_libraries(curl_fuse ${CMAKE_DL_LIBS} ${LIBCAF_LIBRARIES} ${PTHREAD_LIBRARIES} ${CURL_LIBRARY})
-#     add_dependencies(curl_fuse all_examples)
-#   endif(CURL_FOUND)
-# endif()
+# SEARCH FOR CURL
+conf = Configure(env['scons'])
+CURL_FOUND = conf.CheckLibWithHeader('curl', 'curl/curl.h', 'c')
+if not CURL_FOUND:
+    print '******\nDid not find libcurl.a or curl.lib! Will skip `curl_fuse` altogether!\n******'
+env['scons'] = conf.Finish()
+# END SEARCH FOR CURL
+
+if CURL_FOUND:
+    add('curl_fuse', 'curl')
