@@ -11,7 +11,7 @@ def add_dependencies(env):
     # AddNetwork(env)
 
 conf = Configure(env['scons'])
-LIBEDIT_AVAILABLE = conf.CheckLibWithHeader('edit', 'histedit.h', 'c')
+LIBEDIT_AVAILABLE = conf.CheckLibWithHeader('edit', 'histedit.h', 'cpp')
 if not LIBEDIT_AVAILABLE:
     print '******\nDid not find libedit.a or edit.lib! Will skip `Cash` altogether!\n******'
 env['scons'] = conf.Finish()

@@ -41,7 +41,7 @@ add('simple_http_broker', 'brokers')
 
 # SEARCH FOR PROTOBUF
 conf = Configure(env['scons'])
-PROTOBUF_FOUND = conf.CheckLibWithHeader('protobuf', 'google/protobuf/message.h', 'c')
+PROTOBUF_FOUND = conf.CheckLibWithHeader('protobuf', 'google/protobuf/message.h', 'cpp')
 if not PROTOBUF_FOUND:
     print '******\nDid not find libprotobuf.a or protobuf.lib! Will skip `protobuf_broker` altogether!\n******'
 env['scons'] = conf.Finish()
@@ -70,7 +70,7 @@ if env.has_key('QT_TOOL'):
 
 # SEARCH FOR CURL
 conf = Configure(env['scons'])
-CURL_FOUND = conf.CheckLibWithHeader('curl', 'curl/curl.h', 'c')
+CURL_FOUND = conf.CheckLibWithHeader('curl', 'curl/curl.h', 'cpp')
 if not CURL_FOUND:
     print '******\nDid not find libcurl.a or curl.lib! Will skip `curl_fuse` altogether!\n******'
 env['scons'] = conf.Finish()
