@@ -1,5 +1,5 @@
 # caf-workspace
-Example of [CAF](https://github.com/actor-framework/actor-framework) build with [SNocs](https://github.com/osblinnikov/snocs)
+[CAF](https://github.com/actor-framework/actor-framework) build with [SNocs](https://github.com/osblinnikov/snocs)
 
     git clone --recursive https://github.com/osblinnikov/caf-workspace.git
 
