@@ -60,7 +60,7 @@ FAQ:
 
     On Ubuntu, install one of libcurl-dev packages e.g: `sudo apt-get install libcurl4-openssl-dev`. Notice the note in FAQ#2.
 
-5. Clang++ doesn't find some headers e.g <cstdio> etc:
+5. Clang++ doesn't find some headers e.g `<cstdio>` etc:
 
     On Ubuntu, install libc++-dev : `sudo apt-get install libc++-dev`
     
