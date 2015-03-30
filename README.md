@@ -1,9 +1,9 @@
 # caf-workspace
-Example of CAF build with [SNocs](https://github.com/osblinnikov/snocs)
+[CAF](https://github.com/actor-framework/actor-framework) build with [SNocs](https://github.com/osblinnikov/snocs)
 
     git clone --recursive https://github.com/osblinnikov/caf-workspace.git
 
-if you already installed libedit, scons, python (make sure you are running the correct platform, because libedit for x86 may not be installed if you are running on x64)
+if you already installed libedit, libprotobuf, protoc, libcurl, SCons, python (make sure you are running the correct platform, because libedit for x86 may not be installed if you are running on x64)
 
     caf-workspace/build.bash platform=x64 configuration=Debug shared=1 test install
 
