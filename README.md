@@ -1,5 +1,5 @@
 # caf-workspace
-Example of CAF build with SNocs
+Example of CAF build with [SNocs](https://github.com/osblinnikov/snocs)
 
     git clone --recursive https://github.com/osblinnikov/caf-workspace.git
 
