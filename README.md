@@ -36,7 +36,7 @@ Specific to CAF available macro definitions:
 
 Enable memory sanitizer:
 
-    cflag=-fsanitize=address cflag=-fno-omit-frame-pointer
+    cppflag=-fsanitize=address cppflag=-fno-omit-frame-pointer
 
 
 FAQ:
