@@ -3,4 +3,4 @@
 	url = https://github.com/actor-framework/actor-framework.git
 [submodule "github.com/osblinnikov/snocs"]
 	path = github.com/osblinnikov/snocs
-	url = https://github.com/osblinnikov/snocs
+	url = https://github.com/osblinnikov/snocs.git
