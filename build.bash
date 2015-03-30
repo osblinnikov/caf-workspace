@@ -32,5 +32,9 @@ fi
 
 echo "QTVER: $QTVER"
 
+cd $SCRIPTPATH
+
 #START COMPILATION, INCLUDING ARGUMENTS PROVIDED TO THE SCRIPT, WITH G++ COMPILER (with -std=gnu++11 flag)
 QTVER="$QTVER" QTDIR="~/Qt/$QTVER/gcc_64" $SCRIPTPATH/github.com/osblinnikov/snocs/snocs.py $SCRIPTPATH -j 8 --more-warnings compiler=gpp platform=x64 verbose=0 -all ${*:1}
+
+cd -
