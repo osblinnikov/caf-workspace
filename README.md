@@ -64,3 +64,10 @@ FAQ:
 
     On Ubuntu, install libc++-dev : `sudo apt-get install libc++-dev`
     
+6. Howto build with MinGW?
+
+    a) Download MinGW with the C++ threads from [here for 32 bit](http://sourceforge.net/projects/mingwbuilds/files/host-windows/releases/4.8.1/32-bit/threads-posix/dwarf/) or from [here for 64 bit](http://sourceforge.net/projects/mingwbuilds/files/host-windows/releases/4.8.1/64-bit/threads-posix/dwarf/), or as an alternative you can install mingw during installation of [qt5.4](http://www.qt.io/download-open-source/) 
+
+    b) unpack and add the bin folder from the archieve (with Qt C:\QT\5.4\Tools\mingw...) to the PATH environment variable: 
+
+        `PATH=%PATH%;UNPACKED_ARCHIEVE/bin`

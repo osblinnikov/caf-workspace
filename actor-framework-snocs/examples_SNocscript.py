@@ -66,7 +66,8 @@ if env.has_key('QT_TOOL'):
     c['qt4modules'] = c['qt5modules'] = ['QtCore','QtGui','QtWidgets']
     c['qt4ui'] = c['qt5ui'] = ['qtsupport/chatwindow.ui']
     addWithFiles('qt_group_chat', 'qtsupport', ['chatwidget.cpp'], ['qtsupport'], c)
-
+else:
+    print "******\nDid not find QT_TOOL! Will skip `qt_group_chat`\n******"
 
 # SEARCH FOR CURL
 conf = Configure(env['scons'])
