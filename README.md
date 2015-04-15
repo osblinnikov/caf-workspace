@@ -2,6 +2,12 @@
 [CAF](https://github.com/actor-framework/actor-framework) build with [SNocs](https://github.com/osblinnikov/snocs)
 
     git clone --recursive https://github.com/osblinnikov/caf-workspace.git
+    
+or if you already have your workspace with own projects add one more remote repository to your git repo
+
+    git remote add cafws https://github.com/osblinnikov/caf-workspace.git
+    git pull --recurse-submodules cafws master
+    git submodule update --init --recursive
 
 if you already installed libedit, libprotobuf, protoc, libcurl, SCons, python (make sure you are running the correct platform, because libedit for x86 may not be installed if you are running on x64)
 
