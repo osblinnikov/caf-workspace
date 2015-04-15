@@ -15,7 +15,9 @@ if you already installed libedit, libprotobuf, protoc, libcurl, SCons, python (m
 
 or
 
-    caf-workspace/build.bash compiler=clangpp platform=x86 test install 
+    caf-workspace/build.bash compiler=clangpp platform=x86 test install
+    
+in case of the build problems see FAQ at the bottom of the page and/or ask for help in the issue tracker.
 
 these commands will compile all caf libraries, unit-tests, nexus and cash using SNocs (wrapper of SCons) also it will run tests, and install all executables and libraries into the `build` directory. All options can be found at [snocs](https://github.com/osblinnikov/snocs) documentation page
 
