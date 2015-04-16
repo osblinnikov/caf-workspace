@@ -25,6 +25,6 @@ echo "QTDIR: %QTDIR%"
 
 pushd %SCRIPTPATH%
 
-%SCRIPTPATH%\github.com\osblinnikov\snocs\snocs.bat %SCRIPTPATH% -j 8 --more-warnings compiler=mingw platform=x64 verbose=0 -all %*
+%SCRIPTPATH%\github.com\osblinnikov\snocs\snocs.bat %SCRIPTPATH% --more-warnings compiler=mingw platform=x64 verbose=0 define="_WIN32_WINNT=0x0600" -all %*
 
 popd

@@ -7,8 +7,9 @@ def add_dependencies(env):
     AddDependency(env,'libcaf_riac','github.com/actor-framework/libcaf_riac')
     AddDependency(env,'libcaf_io','github.com/actor-framework/libcaf_io')
     AddDependency(env,'libcaf_core','github.com/actor-framework/libcaf_core')
-    AddPthreads(env)
-    # AddNetwork(env)
+    if env['COMPILER'] != 'mingw':
+        AddPthreads(env)
+    AddNetwork(env)
 
 c = {}
 c['PROG_NAME'] = 'nexus'

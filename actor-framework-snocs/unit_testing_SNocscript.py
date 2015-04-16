@@ -4,12 +4,13 @@ from helper import *
 Import( 'env' )
 
 def add_dependencies(env):
-    AddDependency(env,'libcaf_opencl','github.com/actor-framework/libcaf_opencl')
+    #AddDependency(env,'libcaf_opencl','github.com/actor-framework/libcaf_opencl')
     AddDependency(env,'libcaf_riac','github.com/actor-framework/libcaf_riac')
     AddDependency(env,'libcaf_io','github.com/actor-framework/libcaf_io')
     AddDependency(env,'libcaf_core','github.com/actor-framework/libcaf_core')
-    AddPthreads(env)
-    # AddNetwork(env)
+    if env['COMPILER'] != 'mingw':
+        AddPthreads(env)
+    AddNetwork(env)
 
 def add_unit_test(testName, additionalFiles=[]):
     initEnv(env,  testName+'_libcaf_unit_testing')
