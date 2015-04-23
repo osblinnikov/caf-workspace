@@ -19,7 +19,7 @@ or
     
 in case of the build problems see FAQ at the bottom of the page and/or ask for help in the issue tracker.
 
-these commands will compile all caf libraries, unit-tests, nexus and cash using SNocs (wrapper of SCons) also it will run tests, and install all executables and libraries into the `build` directory. All options can be found at [snocs](https://github.com/osblinnikov/snocs) documentation page
+these commands will compile all caf libraries, unit-tests, nexus and cash using SNocs (wrapper of SCons) also it will run tests, and install all executables and libraries into the `build` directory. All options can be found at [snocs](https://github.com/osblinnikov/snocs) documentation page and CAF-specific configuration options in our [wiki](https://github.com/osblinnikov/caf-workspace/wiki/Configure-CAF-build-CMake-vs-SNocs)
 
 Here some options which were used
 
